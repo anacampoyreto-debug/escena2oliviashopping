@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Olivia · Scene 2 · Going Shopping PRO</title>
+<style>
+:root{
+  --bg:#0f1115;--panel:#171b22;--paper:#f3ecdc;--ink:#e9e1d0;--muted:#b7ab90;
+  --gold:#b69352;--gold2:#d6be88;--line:#2b313c;--ok:#2e8b57;--bad:#b44a4a;
+  --shadow:0 14px 34px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:
+radial-gradient(circle at top, rgba(182,147,82,.09), transparent 26%),
+linear-gradient(180deg,#10131a 0%,#0e1014 100%);
+color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+.wrap{width:min(1120px,94%);margin:28px auto 60px}
+.hero,.section{background:linear-gradient(180deg,rgba(23,27,34,.96),rgba(20,24,31,.98));border:1px solid rgba(214,190,136,.12);border-radius:22px;box-shadow:var(--shadow)}
+.hero{padding:28px 24px 22px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg, rgba(214,190,136,.06), transparent 34%, transparent 68%, rgba(214,190,136,.04));pointer-events:none}
+.eyebrow{display:inline-block;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);font-size:.78rem;margin-bottom:10px}
+h1{margin:0 0 8px;font-size:clamp(1.8rem,4vw,3rem);line-height:1.05;color:var(--paper)}
+.sub{margin:0;color:var(--muted);font-size:1.03rem;max-width:940px}
+.note{margin-top:18px;padding:14px 16px;border-left:4px solid var(--gold);background:rgba(214,190,136,.06);color:#f2e8d2;border-radius:12px}
+.stats{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:12px}
+.stat{background:linear-gradient(180deg, rgba(243,236,220,.06), rgba(243,236,220,.03));border:1px solid rgba(214,190,136,.14);border-radius:16px;padding:14px}
+.k{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}.v{font-size:1.5rem;margin-top:6px;color:var(--paper)}
+.grid{display:grid;gap:18px;margin-top:22px}.section{padding:22px 18px 18px}
+h2{margin:0 0 14px;font-size:1.35rem;color:var(--paper);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tag{display:inline-block;padding:5px 10px;border-radius:999px;background:rgba(182,147,82,.13);color:var(--gold2);font-size:.78rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+.card,.exercise,.library{background:linear-gradient(180deg, rgba(243,236,220,.05), rgba(243,236,220,.02));border:1px solid rgba(214,190,136,.10);border-radius:18px;padding:16px 14px}
+.line-en{font-size:1.15rem;color:var(--paper);line-height:1.35;margin:0 0 10px}.line-es{font-size:1rem;color:#d8ccb2;margin:0 0 8px}
+.phon{font-family:"Trebuchet MS",Arial,sans-serif;font-size:.98rem;color:var(--gold2);line-height:1.4}
+.micro,.small,.result,.feedback,.footer,.status{font-size:.92rem;color:var(--muted)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+button{border:1px solid rgba(214,190,136,.18);background:linear-gradient(180deg,#2a3441,#202832);color:var(--paper);padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700}
+button:hover{filter:brightness(1.08)} .ghost{background:transparent}.tiny{font-size:.9rem;padding:8px 12px}.speak{background:linear-gradient(180deg,#6a4d1f,#4d3818)}
+.pill{display:inline-block;margin-top:10px;padding:6px 10px;border-radius:999px;background:rgba(88,119,168,.12);color:#afc4e8;font-size:.82rem}
+.options{display:grid;gap:10px;margin-top:12px}.opt{padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:#141922;cursor:pointer;text-align:left}
+.opt.correct{background:rgba(46,139,87,.16);border-color:rgba(46,139,87,.55)} .opt.wrong{background:rgba(180,74,74,.16);border-color:rgba(180,74,74,.55)}
+input[type=text],textarea{width:100%;background:#0f141b;color:var(--paper);border:1px solid #313948;border-radius:12px;padding:12px 12px;font-size:1rem}
+textarea{min-height:110px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.soft{background:rgba(214,190,136,.05);border:1px dashed rgba(214,190,136,.18);border-radius:16px;padding:14px}
+.library{position:relative}.library:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#5e3e12,#b69352);border-radius:18px 0 0 18px}
+.scorebar{height:14px;background:#11151c;border-radius:999px;overflow:hidden;border:1px solid rgba(214,190,136,.12)} .fill{height:100%;width:0;background:linear-gradient(90deg,#8a6a34,#d2b77d)}
+.levels{display:flex;justify-content:space-between;gap:8px;font-size:.82rem;color:var(--muted);margin-top:8px;flex-wrap:wrap}
+.status{margin-top:10px;padding:10px 12px;border:1px solid rgba(214,190,136,.12);border-radius:12px;background:rgba(243,236,220,.03)}
+@media (max-width:850px){.two,.three,.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+  <div class="eyebrow">Scene 2 · GitHub Pages · Olivia asks and investigates</div>
+  <h1>🛍️ Block 2 · Going Shopping PRO</h1>
+  <p class="sub">Escena 2: Olivia ya no solo mira. Ahora pregunta, evalúa y empieza a levantar la primera pista del caso dentro de la tienda. Voz más natural: frases partidas, pausas teatrales y lectura en dos tramos cuando conviene.</p>
+  <div class="note"><strong>Inmersión de personaje:</strong> Olivia no habla deprisa. Piensa mientras habla. Sus preguntas parecen normales, pero siempre llevan una segunda intención. Aquí entrenas ayuda, búsqueda, color, precio, valoración y primera investigación.</div>
+  <div class="stats">
+    <div class="stat"><div class="k">Points</div><div class="v" id="points">0</div></div>
+    <div class="stat"><div class="k">Correct</div><div class="v" id="correct">0</div></div>
+    <div class="stat"><div class="k">Streak</div><div class="v" id="streak">0</div></div>
+    <div class="stat"><div class="k">Level</div><div class="v" id="levelName">Starter</div></div>
+  </div>
+</section>
+
+<section class="section" style="margin-top:18px">
+  <h2>🔊 Voz Olivia <span class="tag">mejorada sin audio externo</span></h2>
+  <div class="status" id="voiceStatus">La voz usa texto dividido, pausas teatrales y velocidad más baja. No necesitas hacer nada: pulsa SPEAK y escucha.</div>
+</section>
+
+<div class="grid">
+  <section class="section">
+    <h2>1) Listen and repeat <span class="tag">preguntar y leer a la vez</span></h2>
+    <div class="cards" id="phraseCards"></div>
+  </section>
+
+  <section class="section">
+    <h2>2) Shadowing Olivia <span class="tag">modo pensamiento</span></h2>
+    <div class="two">
+      <div class="exercise">
+        <div class="line-en">“Do you have this... in black?”</div>
+        <div class="line-es">“¿Tienes esto... en negro?”</div>
+        <div class="phon">du yu jav dis... in blak</div>
+        <div class="actions"><button class="speak speak-btn" data-text="Do you have this... in black?" data-style="firm">🔊 SPEAK</button></div>
+        <div class="micro">No es una pregunta plana. Primero mira la prenda, luego termina la frase.</div>
+      </div>
+      <div class="exercise">
+        <div class="line-en">“I’m not sure... about this one.”</div>
+        <div class="line-es">“No estoy segura... de esta.”</div>
+        <div class="phon">aim not shur... a-baut dis uan</div>
+        <div class="actions"><button class="speak speak-btn" data-text="I'm not sure... about this one." data-style="measured">🔊 SPEAK</button></div>
+        <div class="micro">Suena más humana porque parece que está pensando de verdad.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>3) Choose the meaning <span class="tag">vocabulario de escena 2</span></h2>
+    <div class="three" id="meaningWrap"></div>
+  </section>
+
+  <section class="section">
+    <h2>4) Complete the sentence <span class="tag">una palabra / dos palabras</span></h2>
+    <div class="cards" id="completeWrap"></div>
+  </section>
+
+  <section class="section">
+    <h2>5) Build the sentence <span class="tag">orden y ritmo</span></h2>
+    <div class="cards" id="buildWrap"></div>
+  </section>
+
+  <section class="section">
+    <h2>6) Transform the phrase <span class="tag">de español a inglés Olivia</span></h2>
+    <div class="cards" id="transformWrap"></div>
+  </section>
+
+  <section class="section">
+    <h2>7) Context detective <span class="tag">primera pista</span></h2>
+    <div class="two">
+      <div class="exercise">
+        <div class="line-en"><strong>Why does Olivia ask twice about the same jacket?</strong></div>
+        <div class="line-es">¿Por qué Olivia pregunta dos veces por la misma chaqueta?</div>
+        <div class="options">
+          <button class="opt context-btn" data-correct="false">Because she really wants to buy it quickly.</button>
+          <button class="opt context-btn" data-correct="true">Because she is testing the assistant's confidence and looking for inconsistency.</button>
+          <button class="opt context-btn" data-correct="false">Because she forgot what colour she likes.</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="exercise">
+        <div class="line-en"><strong>What is the first possible clue?</strong></div>
+        <div class="line-es">¿Cuál es la primera pista posible?</div>
+        <div class="options">
+          <button class="opt context-btn" data-correct="false">The shop is very pretty.</button>
+          <button class="opt context-btn" data-correct="true">The assistant answers too fast about a jacket that was supposedly in the stockroom.</button>
+          <button class="opt context-btn" data-correct="false">Olivia likes the black jacket.</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>8) Mini dialogue <span class="tag">escena 2 completa</span></h2>
+    <div class="library">
+      <div class="cards" id="dialogueWrap"></div>
+      <div style="height:1px;background:linear-gradient(90deg,transparent, rgba(214,190,136,.18), transparent);margin:20px 0"></div>
+      <button class="speak" id="fullDialogueBtn">✅ SPEAK FULL DIALOGUE (+20)</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>9) Quick test <span class="tag">control rápido</span></h2>
+    <div class="two" id="quickWrap"></div>
+  </section>
+
+  <section class="section">
+    <h2>10) Act like Olivia <span class="tag">producción libre</span></h2>
+    <div class="cards">
+      <div class="exercise">
+        <div class="line-en"><strong>Task 1</strong> · Ask for another colour</div>
+        <div class="line-es">Pide otro color y añade una pausa natural.</div>
+        <textarea placeholder="Ejemplo: Do you have this... in black?"></textarea>
+        <div class="actions"><button class="speak textarea-speak-btn">🔊 SPEAK MY SENTENCE</button></div>
+      </div>
+      <div class="exercise">
+        <div class="line-en"><strong>Task 2</strong> · Doubt and evaluate</div>
+        <div class="line-es">Di que no estás segura y añade una valoración.</div>
+        <div class="soft">Modelo: <em>I'm not sure... about this one. It looks expensive.</em></div>
+        <textarea placeholder="Escribe tu versión Olivia"></textarea>
+        <div class="actions"><button class="speak textarea-speak-btn">🔊 SPEAK MY SENTENCE</button></div>
+      </div>
+      <div class="exercise">
+        <div class="line-en"><strong>Task 3</strong> · Ask without revealing too much</div>
+        <div class="line-es">Haz una pregunta que parezca normal pero suene estratégica.</div>
+        <textarea placeholder="Ejemplo: Was this one... here all day?"></textarea>
+        <div class="actions"><button class="speak textarea-speak-btn">🔊 SPEAK MY SENTENCE</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>11) Vocabulary map <span class="tag">scene 2</span></h2>
+    <div class="three">
+      <div class="card"><div class="line-en">specific</div><div class="line-es">concreto / específico</div><div class="phon">spe-SI-fik</div></div>
+      <div class="card"><div class="line-en">stockroom</div><div class="line-es">almacén</div><div class="phon">stok-rum</div></div>
+      <div class="card"><div class="line-en">colour</div><div class="line-es">color</div><div class="phon">KA-luh</div></div>
+      <div class="card"><div class="line-en">cheap</div><div class="line-es">barato</div><div class="phon">chiip</div></div>
+      <div class="card"><div class="line-en">expensive</div><div class="line-es">caro</div><div class="phon">eks-PEN-siv</div></div>
+      <div class="card"><div class="line-en">assistant</div><div class="line-es">dependiente</div><div class="phon">a-SIS-tant</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>12) Useful model sentences <span class="tag">repite a diario</span></h2>
+    <div class="cards">
+      <div class="card"><div class="line-en">Do you have this... in black?</div><div class="line-es">¿Tienes esto... en negro?</div><div class="phon">du yu jav dis... in blak</div><div class="actions"><button class="speak speak-btn" data-text="Do you have this... in black?" data-style="firm">🔊 SPEAK</button></div></div>
+      <div class="card"><div class="line-en">I'm looking for... something specific.</div><div class="line-es">Estoy buscando... algo concreto.</div><div class="phon">aim LU-king for... SAM-thing spe-SI-fik</div><div class="actions"><button class="speak speak-btn" data-text="I'm looking for... something specific." data-style="measured">🔊 SPEAK</button></div></div>
+      <div class="card"><div class="line-en">I'm not sure... about this one.</div><div class="line-es">No estoy segura... de esta.</div><div class="phon">aim not shur... a-baut dis uan</div><div class="actions"><button class="speak speak-btn" data-text="I'm not sure... about this one." data-style="analytical">🔊 SPEAK</button></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>13) How to get a 10 <span class="tag">modo actriz</span></h2>
+    <div class="library">
+      <ul>
+        <li>Usa <strong>pausas internas</strong>: no leas como lista.</li>
+        <li>Divide la intención: primero mira, luego pregunta.</li>
+        <li>Habla más lento de lo que te pide el impulso.</li>
+        <li>Piensa como Olivia: cada pregunta tiene una segunda capa.</li>
+        <li>Repite cada línea en dos versiones: normal y estratégica.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🏅 Score system</h2>
+    <div class="scorebar"><div class="fill" id="fillBar"></div></div>
+    <div class="levels"><span>Starter</span><span>Shopper</span><span>Communicator</span><span>Strong B1</span><span>Level 10</span></div>
+    <div class="footer"><strong>Novedades aplicadas:</strong> 1) frases menos planas, 2) pausas teatrales, 3) modo pensamiento, 5) varias líneas se leen en dos tramos para sonar menos IA sin usar audio externo.</div>
+  </section>
+</div>
+</div>
+
+<script>
+const state={points:0,correct:0,streak:0};
+const phrases=[
+{en:"I'm looking for... something specific.",es:"Estoy buscando... algo concreto.",phon:"aim LU-king for... SAM-thing spe-SI-fik",note:"Ya no suena a alumno. Suena a alguien que mide lo que dice.",voice:"measured"},
+{en:"Do you have this... in black?",es:"¿Tienes esto... en negro?",phon:"du yu jav dis... in blak",note:"La pausa da naturalidad y crea intención.",voice:"firm"},
+{en:"I'm not sure... about this one.",es:"No estoy segura... de esta.",phon:"aim not shur... a-baut dis uan",note:"Duda elegante: no expone demasiado.",voice:"analytical"},
+{en:"This one looks... expensive.",es:"Esta parece... cara.",phon:"dis uan luks... eks-PEN-siv",note:"Parece pensamiento en voz alta.",voice:"analytical"},
+{en:"Was this one... here all day?",es:"¿Estaba esta... aquí todo el día?",phon:"uoz dis uan... jia ol dei",note:"Pregunta inocente por fuera. Investigación por dentro.",voice:"firm"},
+{en:"Interesting... that's quite fast.",es:"Interesante... eso ha sido bastante rápido.",phon:"IN-tres-ting... dats kuait fast",note:"Subtexto: Olivia detecta una inconsistencia.",voice:"analytical"}
+];
+const meaning=[
+{word:"stockroom",phon:"stok-rum",correct:"almacén",options:["almacén","pasillo","rebaja"]},
+{word:"specific",phon:"spe-SI-fik",correct:"concreto",options:["caro","concreto","roto"]},
+{word:"colour",phon:"KA-luh",correct:"color",options:["color","devolución","ticket"]},
+{word:"assistant",phon:"a-SIS-tant",correct:"dependiente",options:["dependiente","cliente","gerente"]},
+{word:"cheap",phon:"chiip",correct:"barato",options:["barato","probador","negro"]},
+{word:"expensive",phon:"eks-PEN-siv",correct:"caro",options:["nuevo","caro","específico"]}
+];
+const complete=[
+{prompt:"I'm looking for... something ______.",es:"Estoy buscando... algo concreto.",phon:"aim LU-king for... SAM-thing spe-SI-fik",accepted:["specific"],mode:"write one word",voice:"measured",speak:"I'm looking for... something specific."},
+{prompt:"Do you have this... in ______?",es:"¿Tienes esto... en negro?",phon:"du yu jav dis... in blak",accepted:["black"],mode:"write one word",voice:"firm",speak:"Do you have this... in black?"},
+{prompt:"This one looks... ______.",es:"Esta parece... cara.",phon:"dis uan luks... eks-PEN-siv",accepted:["expensive"],mode:"write one word",voice:"analytical",speak:"This one looks... expensive."},
+{prompt:"I'm not sure... ______ this one.",es:"No estoy segura... de esta.",phon:"aim not shur... a-baut dis uan",accepted:["about"],mode:"write one word",voice:"analytical",speak:"I'm not sure... about this one."},
+{prompt:"Was this one... ______ day?",es:"¿Estaba esta... todo el día?",phon:"uoz dis uan... ol dei",accepted:["all"],mode:"write one word",voice:"firm",speak:"Was this one... here all day?"},
+{prompt:"something ______",es:"algo concreto",phon:"SAM-thing spe-SI-fik",accepted:["specific"],mode:"write one word",voice:"measured",speak:"something specific"}
+];
+const build=[
+{scramble:"specific / for / looking / I'm / something",solution:"I'm looking for something specific.",es:"Estoy buscando algo concreto.",phon:"aim LU-king for SAM-thing spe-SI-fik",voice:"measured"},
+{scramble:"black / this / in / have / do / you",solution:"Do you have this in black?",es:"¿Tienes esto en negro?",phon:"du yu jav dis in blak",voice:"firm"},
+{scramble:"one / this / expensive / looks",solution:"This one looks expensive.",es:"Esta parece cara.",phon:"dis uan luks eks-PEN-siv",voice:"analytical"},
+{scramble:"about / sure / not / this / I'm / one",solution:"I'm not sure about this one.",es:"No estoy segura de esta.",phon:"aim not shur a-baut dis uan",voice:"analytical"}
+];
+const transform=[
+{es:"Estoy buscando algo concreto.",target:"I'm looking for something specific.",hint:"Usa looking for + something"},
+{es:"¿Tienes esto en negro?",target:"Do you have this in black?",hint:"Empieza por Do you have..."},
+{es:"No estoy segura de esta.",target:"I'm not sure about this one.",hint:"Usa I'm not sure..."},
+{es:"Esta parece cara.",target:"This one looks expensive.",hint:"Usa looks + adjective"}
+];
+const dialogue=[
+{speaker:"Shop assistant",tone:"RP · amable",en:"Can I help you?",es:"¿Puedo ayudarte?",phon:"can ai HELP yu",voice:"neutral"},
+{speaker:"Olivia",tone:"RP · medida",en:"I'm looking for... something specific.",es:"Estoy buscando... algo concreto.",phon:"aim LU-king for... SAM-thing spe-SI-fik",voice:"measured"},
+{speaker:"Shop assistant",tone:"RP · vendedor",en:"Of course. What colour are you thinking of?",es:"Claro. ¿Qué color tienes en mente?",phon:"ov kors. uot KA-luh a yu ZIN-king ov",voice:"neutral"},
+{speaker:"Olivia",tone:"RP · calma",en:"Do you have this... in black?",es:"¿Tienes esto... en negro?",phon:"du yu jav dis... in blak",voice:"firm"},
+{speaker:"Shop assistant",tone:"RP · rápido",en:"Yes, absolutely. It's in the stockroom.",es:"Sí, por supuesto. Está en el almacén.",phon:"yes, ab-so-lut-li. its in de stok-rum",voice:"neutral"},
+{speaker:"Olivia",tone:"RP · detecta algo",en:"Interesting... that was quick.",es:"Interesante... eso ha sido rápido.",phon:"IN-tres-ting... dat woz kuik",voice:"analytical"},
+{speaker:"Olivia",tone:"RP · estratégica",en:"Was this one... here all day?",es:"¿Estaba esta... aquí todo el día?",phon:"uoz dis uan... jia ol dei",voice:"firm"},
+{speaker:"Shop assistant",tone:"RP · vacila",en:"Uh... I think so.",es:"Eh... creo que sí.",phon:"a... ai zink sou",voice:"neutral"}
+];
+const quick=[
+{q:"Which phrase sounds more natural for Olivia?",es:"¿Qué frase suena más natural para Olivia?",options:["Do you have this in black?","Do you have this... in black?","This black you have?"],correct:"Do you have this... in black?"},
+{q:"Why does 'I'm not sure... about this one.' sound better?",es:"¿Por qué suena mejor?",options:["Because the pause makes it sound like real thought.","Because it is grammatically longer.","Because it is American."],correct:"Because the pause makes it sound like real thought."}
+];
+
+let preferredVoice=null;
+function setVoiceStatus(msg){document.getElementById('voiceStatus').textContent=msg}
+function findBestVoice(){
+  if(!window.speechSynthesis) return null;
+  const voices=speechSynthesis.getVoices()||[];
+  return voices.find(v=>/en-GB/i.test(v.lang)&&/libby|sonia|kate|female|serena|susan/i.test(v.name))
+      || voices.find(v=>/en-GB/i.test(v.lang))
+      || voices.find(v=>/en-US|en_AU|en-CA|en/i.test(v.lang))
+      || null;
+}
+function initVoice(){
+  if(!window.speechSynthesis){
+    setVoiceStatus('Tu navegador no soporta voz. Prueba con Chrome o Edge.');
+    return;
+  }
+  preferredVoice=findBestVoice();
+  if(preferredVoice) setVoiceStatus('Voz lista: '+preferredVoice.name+' ('+preferredVoice.lang+'). Pulsa cualquier SPEAK.');
+  else setVoiceStatus('No se encontró una voz inglesa concreta. Se usará la voz por defecto disponible.');
+}
+function splitForSpeech(text){
+  const t=String(text).trim();
+  if(t.includes('...')){
+    const parts=t.split('...').map(s=>s.trim()).filter(Boolean);
+    return parts.length ? parts : [t];
+  }
+  if(t.includes('?') && t.length>20){
+    const idx=t.indexOf('?');
+    return [t.slice(0, idx+1)];
+  }
+  if(t.includes(',') && t.length>24){
+    const parts=t.split(',').map(s=>s.trim()).filter(Boolean);
+    if(parts.length===2) return parts;
+  }
+  return [t];
+}
+function styleUtterance(u,style){
+  u.lang='en-GB';
+  if(preferredVoice) u.voice=preferredVoice;
+  u.pitch=0.90; u.rate=0.82; u.volume=1;
+  if(style==='neutral'){u.rate=0.84;u.pitch=0.92}
+  if(style==='measured'){u.rate=0.79;u.pitch=0.88}
+  if(style==='analytical'){u.rate=0.77;u.pitch=0.86}
+  if(style==='firm'){u.rate=0.80;u.pitch=0.88}
+}
+function speakInParts(text,style='neutral'){
+  if(!window.speechSynthesis){
+    alert('Tu navegador no soporta voz. Prueba con Chrome o Edge.');
+    return;
+  }
+  preferredVoice=findBestVoice() || preferredVoice;
+  const parts=splitForSpeech(text);
+  speechSynthesis.cancel();
+  let delay=0;
+  parts.forEach((part,i)=>{
+    const wait = i===0 ? 0 : 420;
+    delay += wait;
+    setTimeout(()=>{
+      const u=new SpeechSynthesisUtterance(part);
+      styleUtterance(u,style);
+      speechSynthesis.speak(u);
+    }, delay);
+    delay += Math.max(900, part.length*70);
+  });
+}
+function updateScore(add=0,good=false){
+  state.points+=add;
+  if(good){state.correct+=1;state.streak+=1}else if(add<0){state.streak=0}
+  document.getElementById('points').textContent=state.points;
+  document.getElementById('correct').textContent=state.correct;
+  document.getElementById('streak').textContent=state.streak;
+  let level='Starter';
+  if(state.points>=110) level='Level 10';
+  else if(state.points>=75) level='Strong B1';
+  else if(state.points>=45) level='Communicator';
+  else if(state.points>=20) level='Shopper';
+  document.getElementById('levelName').textContent=level;
+  document.getElementById('fillBar').style.width=Math.min(100,(state.points/110)*100)+'%';
+}
+function normalize(s){return s.toLowerCase().trim().replace(/[.,!?]/g,'').replace(/\s+/g,' ')}
+function escapeHtml(str){
+  return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+function parseEscapedJSON(s){
+  const txt=s.replace(/&quot;/g,'"').replace(/&amp;/g,'&');
+  return JSON.parse(txt);
+}
+function renderPhrases(){
+  const wrap=document.getElementById('phraseCards');
+  phrases.forEach(p=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML='<p class="line-en">'+p.en+'</p><p class="line-es">'+p.es+'</p><div class="phon">'+p.phon+'</div>'
+    +'<div class="actions"><button class="speak speak-btn" data-text="'+escapeHtml(p.en)+'" data-style="'+p.voice+'">🔊 SPEAK</button><button class="tiny ghost practice-btn">+2 practice</button></div>'
+    +'<div class="micro">'+p.note+'</div><div class="pill">Tono Olivia · '+p.voice+'</div>';
+    wrap.appendChild(card);
+  });
+}
+function renderMeaning(){
+  const wrap=document.getElementById('meaningWrap');
+  meaning.forEach((m,idx)=>{
+    const box=document.createElement('div');
+    box.className='exercise';
+    let optionsHtml='';
+    m.options.forEach(o=>{optionsHtml+='<button class="opt meaning-btn" data-group="m'+idx+'" data-correct="'+escapeHtml(m.correct)+'" data-selected="'+escapeHtml(o)+'">'+o+'</button>'});
+    box.innerHTML='<div class="line-en"><strong>'+m.word+'</strong></div><div class="phon">'+m.phon+'</div><div class="options">'+optionsHtml+'</div><div class="feedback"></div>';
+    wrap.appendChild(box);
+  });
+}
+function renderComplete(){
+  const wrap=document.getElementById('completeWrap');
+  complete.forEach(c=>{
+    const box=document.createElement('div');
+    box.className='exercise';
+    box.innerHTML='<div class="line-en">'+c.prompt+'</div><div class="line-es">'+c.es+'</div><div class="phon">'+c.phon+'</div>'
+    +'<div class="actions"><button class="speak speak-btn" data-text="'+escapeHtml(c.speak)+'" data-style="'+c.voice+'">🔊 SPEAK</button></div>'
+    +'<div class="small">'+c.mode+'</div><input type="text" placeholder="Write your answer">'
+    +'<div class="actions"><button class="check-complete-btn" data-accepted="'+escapeHtml(JSON.stringify(c.accepted))+'">Check</button></div><div class="result"></div>';
+    wrap.appendChild(box);
+  });
+}
+function renderBuild(){
+  const wrap=document.getElementById('buildWrap');
+  build.forEach(b=>{
+    const box=document.createElement('div');
+    box.className='exercise';
+    box.innerHTML='<div class="line-en">'+b.scramble+'</div><div class="line-es">'+b.es+'</div><div class="phon">'+b.phon+'</div>'
+    +'<input type="text" placeholder="Write the full sentence">'
+    +'<div class="actions"><button class="speak speak-btn" data-text="'+escapeHtml(b.solution)+'" data-style="'+b.voice+'">🔊 SPEAK</button><button class="check-build-btn" data-solution="'+escapeHtml(b.solution)+'">Check</button></div><div class="result"></div>';
+    wrap.appendChild(box);
+  });
+}
+function renderTransform(){
+  const wrap=document.getElementById('transformWrap');
+  transform.forEach(t=>{
+    const box=document.createElement('div');
+    box.className='exercise';
+    box.innerHTML='<div class="line-es"><strong>'+t.es+'</strong></div><div class="small">Pista: '+t.hint+'</div>'
+    +'<input type="text" placeholder="Write it in English">'
+    +'<div class="actions"><button class="check-transform-btn" data-target="'+escapeHtml(t.target)+'">Check</button><button class="speak speak-btn" data-text="'+escapeHtml(t.target)+'" data-style="measured">🔊 SPEAK</button></div><div class="result"></div>';
+    wrap.appendChild(box);
+  });
+}
+function renderDialogue(){
+  const wrap=document.getElementById('dialogueWrap');
+  dialogue.forEach(d=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML='<div class="small">'+d.speaker+' · '+d.tone+'</div><p class="line-en">'+d.en+'</p><p class="line-es">'+d.es+'</p><div class="phon">'+d.phon+'</div>'
+    +'<div class="actions"><button class="speak speak-btn" data-text="'+escapeHtml(d.en)+'" data-style="'+d.voice+'">🔊 SPEAK</button></div>';
+    wrap.appendChild(card);
+  });
+}
+function renderQuick(){
+  const wrap=document.getElementById('quickWrap');
+  quick.forEach((q,idx)=>{
+    const box=document.createElement('div');
+    box.className='exercise';
+    let optionsHtml='';
+    q.options.forEach(o=>{optionsHtml+='<button class="opt quick-btn" data-group="q'+idx+'" data-correct="'+escapeHtml(q.correct)+'" data-selected="'+escapeHtml(o)+'">'+o+'</button>'});
+    box.innerHTML='<div class="line-en">'+q.q+'</div><div class="line-es">'+q.es+'</div><div class="options">'+optionsHtml+'</div><div class="feedback"></div>';
+    wrap.appendChild(box);
+  });
+}
+function playFullDialogue(){
+  let delay=0;
+  dialogue.forEach(d=>{
+    setTimeout(()=>speakInParts(d.en,d.voice),delay);
+    delay += Math.max(1800, d.en.length*120);
+  });
+  updateScore(20,true);
+}
+function bindEvents(){
+  document.getElementById('fullDialogueBtn').addEventListener('click',playFullDialogue);
+  document.addEventListener('click',function(e){
+    if(e.target.classList.contains('speak-btn')){
+      speakInParts(e.target.dataset.text, e.target.dataset.style||'neutral');
+    }
+    if(e.target.classList.contains('practice-btn')){
+      if(e.target.dataset.done) return;
+      e.target.dataset.done='1'; e.target.textContent='✓ practiced'; updateScore(2,true);
+    }
+    if(e.target.classList.contains('meaning-btn')){
+      const ex=e.target.closest('.exercise'); if(ex.dataset.done) return; ex.dataset.done='1';
+      const correct=e.target.dataset.correct;
+      ex.querySelectorAll('.meaning-btn').forEach(b=>{
+        if(b.dataset.correct===b.dataset.selected) b.classList.add('correct');
+        if(b===e.target && b.dataset.selected!==correct) b.classList.add('wrong');
+        b.disabled=true;
+      });
+      const f=ex.querySelector('.feedback');
+      if(e.target.dataset.selected===correct){f.textContent='✅ Correcto'; updateScore(5,true)}
+      else {f.textContent='❌ La correcta era: '+correct; updateScore(-1,false)}
+    }
+    if(e.target.classList.contains('check-complete-btn')){
+      const ex=e.target.closest('.exercise'); if(ex.dataset.done) return; ex.dataset.done='1';
+      const accepted=parseEscapedJSON(e.target.dataset.accepted);
+      const val=normalize(ex.querySelector('input').value);
+      const ok=accepted.map(normalize).includes(val);
+      const r=ex.querySelector('.result');
+      if(ok){r.textContent='✅ Correcto'; updateScore(6,true)}
+      else {r.textContent='❌ Revisa e inténtalo otra vez en la siguiente ronda'; updateScore(-1,false)}
+    }
+    if(e.target.classList.contains('check-build-btn')){
+      const ex=e.target.closest('.exercise'); if(ex.dataset.done) return; ex.dataset.done='1';
+      const solution=e.target.dataset.solution;
+      const ok=normalize(ex.querySelector('input').value)===normalize(solution);
+      const r=ex.querySelector('.result');
+      if(ok){r.textContent='✅ Correcto'; updateScore(7,true)}
+      else {r.textContent='❌ Respuesta esperada: '+solution; updateScore(-1,false)}
+    }
+    if(e.target.classList.contains('check-transform-btn')){
+      const ex=e.target.closest('.exercise'); if(ex.dataset.done) return; ex.dataset.done='1';
+      const target=e.target.dataset.target;
+      const ok=normalize(ex.querySelector('input').value)===normalize(target);
+      const r=ex.querySelector('.result');
+      if(ok){r.textContent='✅ Correcto'; updateScore(8,true)}
+      else {r.textContent='❌ Modelo: '+target; updateScore(-1,false)}
+    }
+    if(e.target.classList.contains('context-btn')){
+      const ex=e.target.closest('.exercise'); if(ex.dataset.done) return; ex.dataset.done='1';
+      const ok=e.target.dataset.correct==='true'; const f=ex.querySelector('.feedback');
+      ex.querySelectorAll('.context-btn').forEach(b=>b.disabled=true);
+      if(ok){e.target.classList.add('correct'); f.textContent='✅ Exacto. Olivia está probando al dependiente.'; updateScore(6,true)}
+      else {e.target.classList.add('wrong'); f.textContent='❌ No. Piensa como Olivia: pregunta normal, intención oculta.'; updateScore(-1,false)}
+      ex.querySelectorAll('.context-btn').forEach(b=>{if(b.dataset.correct==='true') b.classList.add('correct')});
+    }
+    if(e.target.classList.contains('quick-btn')){
+      const ex=e.target.closest('.exercise'); if(ex.dataset.done) return; ex.dataset.done='1';
+      const correct=e.target.dataset.correct;
+      ex.querySelectorAll('.quick-btn').forEach(b=>{
+        if(b.dataset.selected===correct) b.classList.add('correct');
+        if(b===e.target && b.dataset.selected!==correct) b.classList.add('wrong');
+        b.disabled=true;
+      });
+      const f=ex.querySelector('.feedback');
+      if(e.target.dataset.selected===correct){f.textContent='✅ Bien'; updateScore(7,true)}
+      else {f.textContent='❌ La correcta era: '+correct; updateScore(-1,false)}
+    }
+    if(e.target.classList.contains('textarea-speak-btn')){
+      const ta=e.target.closest('.exercise').querySelector('textarea');
+      if(!ta.value.trim()){ alert('Escribe primero tu frase.'); return; }
+      speakInParts(ta.value.trim(),'measured'); updateScore(3,true);
+    }
+  }, {passive:true});
+}
+renderPhrases();
+renderMeaning();
+renderComplete();
+renderBuild();
+renderTransform();
+renderDialogue();
+renderQuick();
+bindEvents();
+updateScore(0,false);
+initVoice();
+if(window.speechSynthesis){
+  setTimeout(initVoice,200);
+  setTimeout(initVoice,800);
+}
+</script>
+</body>
+</html>
